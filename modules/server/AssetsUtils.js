@@ -7,12 +7,8 @@ const createAssets = (webpackStats) => {
     webpackStats.publicPath + asset
 
   const getAssets = (chunkName) => {
-    let assets = webpackStats.assetsByChunkName[chunkName] || []
-
-    if (!Array.isArray(assets))
-      assets = [ assets ]
-
-    return assets
+    const assets = webpackStats.assetsByChunkName[chunkName] || []
+    return Array.isArray(assets) ? assets : [ assets ]
   }
 
   const getScriptURLs = (chunkName) =>
