@@ -1,7 +1,10 @@
-This is just a little repo that helps me build websites more quickly. This boilerplate includes:
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+This little repo is a boilerplate that helps me build websites more quickly. It includes:
 
 - An asset pipeline for development and production
 - A web server (express) for custom server logic
+- Session management (using cookies)
 - Long-term asset caching that's easy to push to a CDN
 - React for rendering all views
 
@@ -50,12 +53,6 @@ You can do this automatically when you deploy by setting the `BUILD_ASSETS` envi
 ## Session Configuration
 
 Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure the domain and secret that will be used to sign the session cookie.
-
-## Deploy
-
-You can deploy a sample app to Heroku right now:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Stack
 
