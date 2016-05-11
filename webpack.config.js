@@ -7,7 +7,7 @@ const AssetURLPrefix = '[hash:8]/'
 
 module.exports = {
   entry: {
-    home: path.resolve(__dirname, 'modules/client/entry.js')
+    home: path.resolve(__dirname, 'modules/client/home.js')
   },
 
   output: {

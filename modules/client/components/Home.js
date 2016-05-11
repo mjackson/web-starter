@@ -1,7 +1,7 @@
 import React from 'react'
-import './App.css'
+import './Home.css'
 
-const App = React.createClass({
+const Home = React.createClass({
   render() {
     return (
       <div>go!</div>
@@ -9,4 +9,4 @@ const App = React.createClass({
   }
 })
 
-export default App
+export default Home
