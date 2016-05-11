@@ -14,15 +14,19 @@ export const createRequestHandler = (options = {}) => {
     app.use(morgan('dev'))
 
   app.use(express.static('public'))
-
   app.use(cookieParser())
-  app.use(
-    cookieSession({
-      name: `sess_${process.env.NODE_ENV}`,
-      domain: options.sessionDomain,
-      secret: options.sessionSecret
-    })
-  )
+
+  const sessionConfig = {
+    name: `sess_${process.env.NODE_ENV}`,
+  }
+
+  if (options.sessionDomain)
+    sessionConfig.domain = options.sessionDomain
+
+  if (options.sessionSecret)
+    sessionConfig.secret = options.sessionSecret
+
+  app.use(cookieSession(sessionConfig))
 
   app.get('/', sendHomePage)
 
