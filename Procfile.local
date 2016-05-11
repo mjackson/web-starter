@@ -1,1 +1,1 @@
-web: node server.js
+web: NODE_ENV=development node server.js
