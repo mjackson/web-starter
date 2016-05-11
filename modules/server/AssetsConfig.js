@@ -16,6 +16,8 @@ if (serveStaticAssets) {
     const stats = JSON.parse(fs.readFileSync(statsFile))
     const assetsByChunkName = stats.assetsByChunkName
 
+    console.log(assetsByChunkName)
+
     for (const chunkName in assetsByChunkName) {
       if (assetsByChunkName.hasOwnProperty(chunkName)) {
         const assetPath = assetsByChunkName[chunkName]
