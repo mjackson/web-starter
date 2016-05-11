@@ -23,8 +23,11 @@ export const createRequestHandler = (options = {}) => {
   if (options.sessionDomain)
     sessionConfig.domain = options.sessionDomain
 
-  if (options.sessionSecret)
+  if (options.sessionSecret) {
     sessionConfig.secret = options.sessionSecret
+  } else {
+    sessionConfig.signed = false
+  }
 
   app.use(cookieSession(sessionConfig))
 
