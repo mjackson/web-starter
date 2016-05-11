@@ -3,7 +3,7 @@
     "start": "heroku local -f Procfile.local",
     "build-assets": "NODE_ENV=production webpack -p --json > stats.json",
     "serve-assets": "webpack-dev-server --content-base ./public --inline",
-    "heroku-postbuild": "node ./scripts/postbuild.js"
+    "heroku-postbuild": "npm run build-assets"
   },
   "dependencies": {
     "babel-core": "^6.8.0",

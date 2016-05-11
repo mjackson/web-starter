@@ -28,8 +28,8 @@ First, install:
 
 Next, clone the repo and install all dependencies:
 
-    $ git clone https://github.com/mjackson/web-starter
-    $ cd web-starter
+    $ git clone https://github.com/mjackson/web-starter new-project
+    $ cd new-project
     $ npm install
 
 Then, start the web server:
@@ -48,7 +48,7 @@ In **production**, create a static build of the assets:
 
     $ npm run build-assets
 
-You can do this automatically when you deploy by setting the `BUILD_ASSETS` environment variable. Otherwise, you can create your build manually, upload it to a CDN, and use the `ASSETS_URL` environment variable to point to your CDN.
+This is run automatically when you deploy to Heroku. If you want to upload your assets to a CDN, use the `ASSETS_URL` environment variable to point to it.
 
 ## Session Configuration
 
@@ -61,6 +61,6 @@ web-starter relies on the following tools to get the job done:
 - [node.js](https://nodejs.org/) (runtime)
 - [npm](https://www.npmjs.com/) (package manager)
 - [webpack](https://webpack.github.io/) (build tool)
-- [heroku](https://heroku.com/) (deploy target)
 - [express](http://expressjs.com/) (web server)
 - [react](https://facebook.github.io/react/) (UI framework)
+- [heroku](https://heroku.com/) (deploy target)
