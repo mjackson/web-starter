@@ -1,4 +1,16 @@
-import { renderHomePage } from './RenderUtils'
+import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import HomePage from './components/HomePage'
 
-export const sendHomePage = (req, res) =>
-  res.send(renderHomePage())
+const DOCTYPE = '<!DOCTYPE html>'
+
+export const sendHomePage = (req, res) => {
+  const props = {
+    styles: req.assets.getStyleURLs('home'),
+    scripts: req.assets.getScriptURLs('home')
+  }
+
+  res.send(
+    DOCTYPE + renderToStaticMarkup(<HomePage {...props}/>)
+  )
+}

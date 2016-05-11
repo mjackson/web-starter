@@ -1,2 +1,1 @@
 web: node server.js
-asset-server: npm run serve-assets

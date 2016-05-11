@@ -12,10 +12,6 @@
     "SESSION_SECRET": {
       "description": "A secret key for verifying the integrity of signed session cookies",
       "generator": "secret"
-    },
-    "ASSETS_URL": {
-      "description": "The base URL to serve static assets from",
-      "value": "/assets/"
     }
   }
 }

@@ -1,16 +1,30 @@
+const path = require('path')
+
 require('babel-register')({
-  only: require('path').resolve(__dirname, 'modules')
+  only: path.resolve(__dirname, 'modules')
 })
 
 const port = process.env.PORT || 5000
 const sessionDomain = require('./modules/server/SessionConfig').SessionDomain
 const sessionSecret = require('./modules/server/SessionConfig').SessionSecret
-const createServer = require('./modules/server').createServer
+const webpackConfigFile = path.resolve(__dirname, 'webpack.config.js')
+const statsFile = path.resolve(__dirname, 'stats.json')
+const publicDir = path.resolve(__dirname, 'public')
 
-const server = createServer({
+const serverConfig = {
+  port,
   sessionDomain,
-  sessionSecret
-})
+  sessionSecret,
+  webpackConfigFile,
+  statsFile,
+  publicDir
+}
+
+const { createServer, createDevServer } = require('./modules/server')
+
+const server = process.env.NODE_ENV === 'production'
+  ? createServer(serverConfig)
+  : createDevServer(serverConfig)
 
 server.listen(port, () => {
   console.log('Server listening on port %s, Ctrl+C to stop', port)

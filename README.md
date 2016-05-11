@@ -48,7 +48,7 @@ In **production**, create a static build of the assets:
 
     $ npm run build-assets
 
-This is run automatically when you deploy to Heroku. If you want to upload your assets to a CDN, use the `ASSETS_URL` environment variable to point to it.
+This is run automatically when you deploy to Heroku. If you want to upload your assets to a CDN, use the `output.publicPath` variable in `webpack.config.js`.
 
 ## Session Configuration
 
