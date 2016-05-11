@@ -13,16 +13,14 @@ if (serveStaticAssets) {
   const statsFile = path.resolve(__dirname, '../../stats.json')
 
   try {
-    const webpackStats = JSON.parse(fs.readFileSync(statsFile))
+    const stats = JSON.parse(fs.readFileSync(statsFile))
 
-    webpackStats.children.forEach(stats => {
-      for (const chunkName in stats.assetsByChunkName) {
-        const assetPath = '/' + stats.assetsByChunkName[chunkName]
-        const canonicalURL = assetPath.replace(/-[a-f0-9]+\//, '/')
+    for (const chunkName in stats.assetsByChunkName) {
+      const assetPath = stats.assetsByChunkName[chunkName]
+      const canonicalURL = assetPath.replace(/^[a-f0-9]+-/, '')
 
-        AssetsManifest[canonicalURL] = assetPath
-      }
-    })
+      AssetsManifest[canonicalURL] = assetPath
+    }
   } catch (error) {
     if (error.code === 'ENOENT') {
       console.error('Cannot serve static assets without a build; run `npm run build-assets` before starting the server')
