@@ -35,3 +35,9 @@ You can do this automatically when you deploy by setting the `BUILD_ASSETS` envi
 ## Session Configuration
 
 Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure the domain and secret that will be used to sign the session cookie.
+
+## Deploy
+
+You can deploy a sample app to Heroku right now:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
