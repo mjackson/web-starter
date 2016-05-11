@@ -1,0 +1,2 @@
+web: node modules/server/start.js
+asset-server: npm run serve-assets
