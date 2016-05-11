@@ -1,0 +1,11 @@
+{
+  "name": "web-starter sample",
+  "description": "A basic React app with server logic",
+  "repository": "https://github.com/mjackson/web-starter",
+  "keywords": [
+    "react",
+    "express",
+    "webpack",
+    "node"
+  ]
+}
