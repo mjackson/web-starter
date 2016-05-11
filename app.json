@@ -1,6 +1,6 @@
 {
-  "name": "web-starter sample",
-  "description": "A basic React app with server logic",
+  "name": "web-starter",
+  "description": "A modern website with server logic and a responsive UI",
   "repository": "https://github.com/mjackson/web-starter",
   "keywords": [
     "react",
