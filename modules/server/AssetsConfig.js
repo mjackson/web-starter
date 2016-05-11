@@ -10,7 +10,7 @@ export const AssetsManifest = {}
 const serveStaticAssets = path.isAbsolute(AssetsURL)
 
 if (serveStaticAssets) {
-  const statsFile = path.resolve(__dirname, '../stats.json')
+  const statsFile = path.resolve(__dirname, '../../stats.json')
 
   try {
     const webpackStats = JSON.parse(fs.readFileSync(statsFile))
