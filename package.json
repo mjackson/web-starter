@@ -12,7 +12,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.8.0",
     "cookie-parser": "^1.4.1",
-    "cookie-session": "^2.0.0-alpha.1",
+    "cookie-session": "^1.2.0",
     "css-loader": "^0.23.1",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
