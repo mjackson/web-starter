@@ -2,6 +2,7 @@ This is just a little repo that helps me build websites more quickly. This boile
 
 - An asset pipeline for development and production
 - A web server (express) for custom server logic
+- Long-term asset caching that's easy to push to a CDN
 - React for rendering all views
 
 It does not include:
