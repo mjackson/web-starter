@@ -5,7 +5,7 @@ module.exports = {
 
   output: {
     path: './public/assets',
-    filename: '[name].js',
+    filename: '[hash:8]-[name].js',
     publicPath: '/assets/'
   },
 
