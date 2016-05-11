@@ -41,7 +41,7 @@ export const createServer = (config) => {
 }
 
 export const createDevServer = (config) => {
-  const webpackConfig = require(config.webpackConfigFile)
+  const webpackConfig = config.webpackConfig
   const compiler = createDevCompiler(
     webpackConfig,
     `webpack-dev-server/client?http://localhost:${config.port}`

@@ -7,7 +7,7 @@ require('babel-register')({
 const port = process.env.PORT || 5000
 const sessionDomain = require('./modules/server/SessionConfig').SessionDomain
 const sessionSecret = require('./modules/server/SessionConfig').SessionSecret
-const webpackConfigFile = path.resolve(__dirname, 'webpack.config.js')
+const webpackConfig = require('./webpack.config')
 const statsFile = path.resolve(__dirname, 'stats.json')
 const publicDir = path.resolve(__dirname, 'public')
 
@@ -15,7 +15,7 @@ const serverConfig = {
   port,
   sessionDomain,
   sessionSecret,
-  webpackConfigFile,
+  webpackConfig,
   statsFile,
   publicDir
 }
