@@ -1,14 +1,21 @@
 This is just a little repo that helps me build websites more quickly. It uses:
 
-- node.js and npm
-- [express](http://expressjs.com/)
-- [webpack](https://webpack.github.io/)
-- [heroku-local](https://devcenter.heroku.com/articles/heroku-local)
-- [react](https://facebook.github.io/react/)
+- [node.js](https://nodejs.org/) (runtime)
+- [npm](https://www.npmjs.com/) (package manager)
+- [webpack](https://webpack.github.io/) (build tool)
+- [heroku](https://heroku.com/) (deploy target)
+- [express](http://expressjs.com/) (web server)
+- [react](https://facebook.github.io/react/) (UI framework)
 
 ## Getting Started
 
-Install everything by cloning the repo and installing dependencies:
+First, install:
+
+- [git](https://git-scm.com/)
+- [node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/)
+- [heroku toolbelt](https://toolbelt.heroku.com/)
+
+Next, clone the repo and install all dependencies:
 
     $ git clone https://github.com/mjackson/web-starter
     $ cd web-starter
@@ -18,7 +25,7 @@ Then, start the web server:
 
     $ npm start
 
-Then, open a browser to [http://localhost:5000](http://localhost:5000).
+Open a browser to [http://localhost:5000](http://localhost:5000).
 
 ## Serving Assets
 
