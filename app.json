@@ -12,6 +12,10 @@
     "BUILD_ASSETS": {
       "description": "Automatically build and serve assets",
       "value": "1"
+    },
+    "SESSION_SECRET": {
+      "description": "A secret key for verifying the integrity of signed session cookies",
+      "generator": "secret"
     }
   }
 }
