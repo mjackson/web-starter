@@ -39,21 +39,26 @@ Then, start the server:
 
 Open a browser to [http://localhost:5000](http://localhost:5000).
 
-## Serving Assets
+## Deploying
 
-In **development**, we automatically re-compile asset bundles as they change and refresh the browser window so you see updates immediately. You can start the asset server manually with:
+When you're ready to deploy, create a new Heroku app and push to Heroku:
 
-    $ npm run serve-assets
+    $ heroku create my-app-name
+    $ git push heroku
 
-In **production**, we create a static build of the assets. You can build the assets manually with:
-
-    $ npm run build-assets
-
-If you want to upload your assets to a CDN, use the `output.publicPath` variable in `webpack.config.js`.
+Assets are automatically compiled for you on every deploy.
 
 ## Session Configuration
 
 Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure the domain and secret that will be used to sign the session cookie. In development, you can store these variables in a `.env` file in the root directory.
+
+## Serving Assets from a CDN
+
+By default assets are compiled when you deploy to Heroku and served out of the `public/assets` directory. If you want to put these assets on a CDN instead, first put the full URL to your CDN in the `output.publicPath` variable in `webpack.config.js` and manually run the build with:
+
+    $ npm run build-assets
+
+Then upload the `public/assets` directory to your CDN and deploy.
 
 ## Credits
 
