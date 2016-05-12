@@ -50,7 +50,10 @@ Assets are automatically compiled for you on every deploy.
 
 ## Session Configuration
 
-Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure the domain and secret that will be used to sign the session cookie. In development, you can store these variables in a `.env` file in the root directory.
+Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure the domain and secret that will be used to sign the session cookie. In development, you can store these variables in a `.env` file in the root directory. In production, set them with:
+
+    $ heroku config:set SESSION_DOMAIN=.example.com
+    $ heroku config:set SESSION_SECRET=`node -p 'require("crypto").randomBytes(64).toString("hex")'`
 
 ## Serving Assets from a CDN
 
