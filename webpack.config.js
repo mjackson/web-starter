@@ -11,8 +11,8 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'public/assets'),
     filename: `${AssetURLPrefix}[name].js`,
+    path: path.resolve(__dirname, 'public/assets'),
     publicPath: '/assets/'
   },
 
