@@ -48,16 +48,19 @@ export const createDevServer = (config) => {
   )
 
   const server = new WebpackDevServer(compiler, {
-    contentBase: config.publicDir,
+    contentBase: false,
     publicPath: webpackConfig.output.publicPath,
     setup(app) {
-      // This runs before the middleware server.
+      // This runs before webpack-dev-middleware.
       app.disable('x-powered-by')
       app.use(morgan('dev'))
-      app.use(assetsCompiler(compiler))
-      app.use(createRouter(config))
     }
   })
+
+  // This runs after webpack-dev-middleware.
+  server.use(express.static(config.publicDir))
+  server.use(assetsCompiler(compiler))
+  server.use(createRouter(config))
 
   return server
 }
