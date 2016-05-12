@@ -27,9 +27,12 @@ First, install:
 - [node](https://nodejs.org/) and [npm](https://www.npmjs.com/)
 - [heroku toolbelt](https://toolbelt.heroku.com/)
 
-Next, create a new project and install all dependencies:
+Run the following command to create a new project:
 
-    $ git clone https://github.com/mjackson/web-starter new-project
+    $ node -e "$(curl -fsSL https://raw.githubusercontent.com/mjackson/web-starter/install/install.js)"
+
+Enter your project name at the prompt, then `cd` into the directory and install dependencies:
+
     $ cd new-project
     $ npm install
 
