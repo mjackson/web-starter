@@ -1,8 +1,9 @@
-const path = require('path')
-
 require('babel-register')({
   only: path.resolve(__dirname, 'modules')
 })
+
+const path = require('path')
+const { createServer, createDevServer } = require('./modules/server')
 
 const port = process.env.PORT || 5000
 const sessionDomain = require('./modules/server/SessionConfig').SessionDomain
@@ -19,8 +20,6 @@ const serverConfig = {
   statsFile,
   publicDir
 }
-
-const { createServer, createDevServer } = require('./modules/server')
 
 const server = process.env.NODE_ENV === 'production'
   ? createServer(serverConfig)
