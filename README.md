@@ -29,7 +29,7 @@ First, install:
 
 Run the following command to create a new project:
 
-    $ node -e "$(curl -fsSL https://raw.githubusercontent.com/mjackson/web-starter/install/install.js)"
+    $ node -e "$(curl -fsSL https://raw.githubusercontent.com/mjackson/web-starter/master/install.js)"
 
 Enter your project name at the prompt (e.g. `my-new-project`), then install dependencies and start the server:
 
