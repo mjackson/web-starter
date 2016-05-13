@@ -60,8 +60,22 @@ export const createDevServer = (config) => {
   )
 
   const server = new WebpackDevServer(compiler, {
-    contentBase: false,
+    // webpack-dev-middleware options.
     publicPath: webpackConfig.output.publicPath,
+    quiet: false,
+    noInfo: false,
+    stats: {
+      // https://webpack.github.io/docs/node.js-api.html#stats-tojson
+      assets: true,
+      colors: true,
+      version: false,
+      hash: false,
+      timings: false,
+      chunks: false
+    },
+
+    // webpack-dev-server options.
+    contentBase: false,
     setup(app) {
       // This runs before webpack-dev-middleware.
       app.disable('x-powered-by')
