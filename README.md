@@ -31,20 +31,17 @@ Run the following command to create a new project:
 
     $ node -e "$(curl -fsSL https://raw.githubusercontent.com/mjackson/web-starter/install/install.js)"
 
-Enter your project name at the prompt, then `cd` into the directory and install dependencies:
+Enter your project name at the prompt (e.g. `my-new-project`), then install dependencies and start the server:
 
-    $ cd new-project
+    $ cd my-new-project
     $ npm install
-
-Then, start the server:
-
     $ npm start
 
 Open a browser to [http://localhost:5000](http://localhost:5000).
 
 ## Deploying
 
-When you're ready to deploy, create a new Heroku app and push to Heroku:
+When you're ready to deploy, create a new Heroku app and push:
 
     $ heroku create my-app-name
     $ git push heroku
