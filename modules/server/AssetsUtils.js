@@ -41,7 +41,7 @@ export const staticAssets = (webpackStatsFile) => {
     invariant(
       false,
       'staticAssets middleware cannot read the build stats in %s; ' +
-      'run `npm run build-assets` before starting the server',
+      'do `npm run build` before starting the server',
       webpackStatsFile
     )
   }

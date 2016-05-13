@@ -1,9 +1,8 @@
 {
   "scripts": {
     "start": "heroku local -f Procfile.local",
-    "build-assets": "NODE_ENV=production webpack -p --json > stats.json",
-    "serve-assets": "webpack-dev-server --content-base ./public --inline",
-    "heroku-postbuild": "npm run build-assets"
+    "build": "NODE_ENV=production webpack -p --json > stats.json",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",

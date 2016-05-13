@@ -59,7 +59,7 @@ Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure
 
 By default assets are compiled when you deploy to Heroku and served out of the `public/assets` directory. If you want to put these assets on a CDN instead, first put the full URL to your CDN in the `output.publicPath` variable in `webpack.config.js` and manually run the build with:
 
-    $ npm run build-assets
+    $ npm run build
 
 Then upload the `public/assets` directory to your CDN and deploy.
 
