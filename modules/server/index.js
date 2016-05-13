@@ -7,7 +7,7 @@ import WebpackDevServer from 'webpack-dev-server'
 import { staticAssets, assetsCompiler, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
 
-export const createRouter = (config = {}) => {
+const createSession = (config) => {
   const sessionConfig = {
     name: `sess_${process.env.NODE_ENV}`,
   }
@@ -21,10 +21,14 @@ export const createRouter = (config = {}) => {
     sessionConfig.signed = false
   }
 
+  return cookieSession(sessionConfig)
+}
+
+export const createRouter = (config = {}) => {
   const router = express.Router()
 
   router.use(cookieParser())
-  router.use(cookieSession(sessionConfig))
+  router.use(createSession(config))
   router.get('/', sendHomePage)
 
   return router
