@@ -2,6 +2,7 @@ import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
+import devErrorHandler from 'errorhandler'
 import WebpackDevServer from 'webpack-dev-server'
 import { staticAssets, assetsCompiler, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
@@ -29,10 +30,17 @@ export const createRouter = (config = {}) => {
   return router
 }
 
+const errorHandler = (err, req, res, next) => {
+  res.status(500).send('<p>Internal Server Error</p>')
+  console.error(error.stack)
+  next(err)
+}
+
 export const createServer = (config) => {
   const app = express()
 
   app.disable('x-powered-by')
+  app.use(errorHandler)
   app.use(express.static(config.publicDir))
   app.use(staticAssets(config.statsFile))
   app.use(createRouter(config))
@@ -58,6 +66,7 @@ export const createDevServer = (config) => {
   })
 
   // This runs after webpack-dev-middleware.
+  server.use(devErrorHandler())
   server.use(express.static(config.publicDir))
   server.use(assetsCompiler(compiler))
   server.use(createRouter(config))

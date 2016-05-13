@@ -1,8 +1,9 @@
+const path = require('path')
+
 require('babel-register')({
   only: path.resolve(__dirname, 'modules')
 })
 
-const path = require('path')
 const { createServer, createDevServer } = require('./modules/server')
 
 const port = process.env.PORT || 5000
