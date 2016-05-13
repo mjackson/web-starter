@@ -6,17 +6,17 @@ const createAssets = (webpackStats) => {
   const createURL = (asset) =>
     webpackStats.publicPath + asset
 
-  const getAssets = (chunkName) => {
+  const getAssets = (chunkName = 'main') => {
     const assets = webpackStats.assetsByChunkName[chunkName] || []
     return Array.isArray(assets) ? assets : [ assets ]
   }
 
-  const getScriptURLs = (chunkName) =>
+  const getScriptURLs = (chunkName = 'main') =>
     getAssets(chunkName)
       .filter(asset => (/\.js$/).test(asset))
       .map(createURL)
 
-  const getStyleURLs = (chunkName) =>
+  const getStyleURLs = (chunkName = 'main') =>
     getAssets(chunkName)
       .filter(asset => (/\.css$/).test(asset))
       .map(createURL)
