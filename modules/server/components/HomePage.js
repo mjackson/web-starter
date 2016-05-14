@@ -27,6 +27,8 @@ const HomePage = React.createClass({
           <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,width=device-width"/>
           <meta name="timestamp" content={(new Date).toISOString()}/>
           <title>{title}</title>
+          <script dangerouslySetInnerHTML={{ __html: "window.Promise || document.write('\\x3Cscript src=\"/es6-promise.min.js\">\\x3C/script>\\x3Cscript>ES6Promise.polyfill()\\x3C/script>')" }}/>
+          <script dangerouslySetInnerHTML={{ __html: "window.fetch || document.write('\\x3Cscript src=\"/fetch.min.js\">\\x3C/script>')" }}/>
           {styles.map(style => (
             <link key={style} rel="stylesheet" href={style}/>
           ))}
