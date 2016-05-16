@@ -71,5 +71,6 @@ web-starter wouldn't exist without the incredible work of everyone involved in t
 - [npm](https://www.npmjs.com/)
 - [webpack](https://webpack.github.io/)
 - [express](http://expressjs.com/)
+- [Babel](http://babeljs.io/)
 - [React](https://facebook.github.io/react/)
 - [heroku](https://heroku.com/)
