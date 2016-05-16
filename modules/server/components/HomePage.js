@@ -29,15 +29,11 @@ const HomePage = React.createClass({
           <title>{title}</title>
           <script dangerouslySetInnerHTML={{ __html: "window.Promise || document.write('\\x3Cscript src=\"/es6-promise.min.js\">\\x3C/script>\\x3Cscript>ES6Promise.polyfill()\\x3C/script>')" }}/>
           <script dangerouslySetInnerHTML={{ __html: "window.fetch || document.write('\\x3Cscript src=\"/fetch.min.js\">\\x3C/script>')" }}/>
-          {styles.map(style => (
-            <link key={style} rel="stylesheet" href={style}/>
-          ))}
+          {styles.map(style => <link key={style} rel="stylesheet" href={style}/>)}
         </head>
         <body>
           <div id="app"/>
-          {scripts.map(script => (
-            <script key={script} src={script}/>
-          ))}
+          {scripts.map(script => <script key={script} src={script}/>)}
         </body>
       </html>
     )
