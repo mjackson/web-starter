@@ -29,11 +29,11 @@ First, install:
 
 Run the following command to create a new project:
 
-    $ node -e "$(curl -fsSL https://raw.githubusercontent.com/mjackson/web-starter/master/install.js)"
+    $ git clone --depth 1 https://github.com/mjackson/web-starter new-project
 
-Enter your project name at the prompt (e.g. `my-new-project`), then install dependencies and start the server:
+Then install dependencies and start the server:
 
-    $ cd my-new-project
+    $ cd new-project
     $ npm install
     $ npm start
 
