@@ -1,3 +1,4 @@
+/*eslint-disable no-console*/
 import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -36,7 +37,7 @@ export const createRouter = (config = {}) => {
 
 const errorHandler = (err, req, res, next) => {
   res.status(500).send('<p>Internal Server Error</p>')
-  console.error(error.stack)
+  console.error(err.stack)
   next(err)
 }
 

@@ -4,7 +4,9 @@
     "build": "npm run build-assets && npm run build-lib",
     "build-assets": "NODE_ENV=production webpack -p --json > stats.json",
     "build-lib": "rimraf lib && babel ./modules -d lib --copy-files",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "lint": "eslint modules",
+    "test": "npm run lint"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
@@ -32,7 +34,13 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
-    "babel-register": "^6.8.0"
+    "babel-eslint": "^6.0.4",
+    "babel-register": "^6.8.0",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.1.1"
   },
   "engines": {
     "node": "6"
