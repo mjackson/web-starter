@@ -2,16 +2,19 @@
   "name": "web-starter",
   "description": "Get started building a new website quickly",
   "repository": "https://github.com/mjackson/web-starter",
-  "keywords": [
-    "react",
-    "express",
-    "webpack",
-    "node"
-  ],
   "env": {
     "SESSION_SECRET": {
       "description": "A secret key for verifying the integrity of signed session cookies",
       "generator": "secret"
     }
-  }
+  },
+  "keywords": [
+    "babel",
+    "react",
+    "heroku",
+    "express",
+    "webpack",
+    "node",
+    "javascript"
+  ]
 }
