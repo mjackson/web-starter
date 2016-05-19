@@ -6,8 +6,8 @@ const DOCTYPE = '<!DOCTYPE html>'
 
 export const sendHomePage = (req, res) => {
   const props = {
-    styles: req.assets.getStyleURLs('home'),
-    scripts: req.assets.getScriptURLs('home')
+    styles: req.bundle.getStyleAssets('home'),
+    scripts: req.bundle.getScriptAssets('home')
   }
 
   res.send(

@@ -2,7 +2,7 @@ import fs from 'fs'
 import invariant from 'invariant'
 import webpack from 'webpack'
 
-const createAssets = (webpackStats) => {
+const createBundle = (webpackStats) => {
   const createURL = (asset) =>
     webpackStats.publicPath + asset
 
@@ -11,12 +11,12 @@ const createAssets = (webpackStats) => {
     return Array.isArray(assets) ? assets : [ assets ]
   }
 
-  const getScriptURLs = (chunkName = 'main') =>
+  const getScriptAssets = (chunkName = 'main') =>
     getAssets(chunkName)
       .filter(asset => (/\.js$/).test(asset))
       .map(createURL)
 
-  const getStyleURLs = (chunkName = 'main') =>
+  const getStyleAssets = (chunkName = 'main') =>
     getAssets(chunkName)
       .filter(asset => (/\.css$/).test(asset))
       .map(createURL)
@@ -24,13 +24,13 @@ const createAssets = (webpackStats) => {
   return {
     createURL,
     getAssets,
-    getScriptURLs,
-    getStyleURLs
+    getScriptAssets,
+    getStyleAssets
   }
 }
 
 /**
- * An express middleware that sets req.assets from the build
+ * An express middleware that sets req.bundle from the build
  * info in the given stats file. Should be used in production.
  */
 export const staticAssets = (webpackStatsFile) => {
@@ -46,33 +46,33 @@ export const staticAssets = (webpackStatsFile) => {
     )
   }
 
-  const assets = createAssets(stats)
+  const bundle = createBundle(stats)
 
   return (req, res, next) => {
-    req.assets = assets
+    req.bundle = bundle
     next()
   }
 }
 
 /**
- * An express middleware that sets req.assets from the
+ * An express middleware that sets req.bundle from the
  * latest result from a running webpack compiler (i.e. using
  * webpack-dev-middleware). Should only be used in dev.
  */
-export const assetsCompiler = (webpackCompiler) => {
-  let assets
+export const devAssets = (webpackCompiler) => {
+  let bundle
   webpackCompiler.plugin('done', (stats) => {
-    assets = createAssets(stats.toJson())
+    bundle = createBundle(stats.toJson())
   })
 
   return (req, res, next) => {
     invariant(
-      assets != null,
-      'assetsCompiler middleware needs a running compiler; ' +
-      'use webpack-dev-middleware in front of assetsCompiler'
+      bundle != null,
+      'devAssets middleware needs a running compiler; ' +
+      'use webpack-dev-middleware in front of devAssets'
     )
 
-    req.assets = assets
+    req.bundle = bundle
     next()
   }
 }

@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import devErrorHandler from 'errorhandler'
 import WebpackDevServer from 'webpack-dev-server'
-import { staticAssets, assetsCompiler, createDevCompiler } from './AssetsUtils'
+import { staticAssets, devAssets, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
 
 const createSession = (config) => {
@@ -87,7 +87,7 @@ export const createDevServer = (config) => {
   // This runs after webpack-dev-middleware.
   server.use(devErrorHandler())
   server.use(express.static(config.publicDir))
-  server.use(assetsCompiler(compiler))
+  server.use(devAssets(compiler))
   server.use(createRouter(config))
 
   return server
