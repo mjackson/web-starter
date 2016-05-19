@@ -3,21 +3,23 @@ import invariant from 'invariant'
 import webpack from 'webpack'
 
 const createBundle = (webpackStats) => {
+  const { publicPath, assetsByChunkName } = webpackStats
+
   const createURL = (asset) =>
-    webpackStats.publicPath + asset
+    publicPath + asset
 
-  const getAssets = (chunkName = 'main') => {
-    const assets = webpackStats.assetsByChunkName[chunkName] || []
-    return Array.isArray(assets) ? assets : [ assets ]
-  }
+  const getAssets = (chunks = [ 'main' ]) =>
+    (Array.isArray(chunks) ? chunks : [ chunks ]).reduce((memo, chunk) => (
+      memo.concat(assetsByChunkName[chunk] || [])
+    ), [])
 
-  const getScriptAssets = (chunkName = 'main') =>
-    getAssets(chunkName)
+  const getScriptAssets = (...args) =>
+    getAssets(...args)
       .filter(asset => (/\.js$/).test(asset))
       .map(createURL)
 
-  const getStyleAssets = (chunkName = 'main') =>
-    getAssets(chunkName)
+  const getStyleAssets = (...args) =>
+    getAssets(...args)
       .filter(asset => (/\.css$/).test(asset))
       .map(createURL)
 
