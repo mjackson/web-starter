@@ -69,9 +69,9 @@ export const createDevServer = (config) => {
       // https://webpack.github.io/docs/node.js-api.html#stats-tojson
       assets: true,
       colors: true,
-      version: false,
-      hash: false,
-      timings: false,
+      version: true,
+      hash: true,
+      timings: true,
       chunks: false
     },
 
