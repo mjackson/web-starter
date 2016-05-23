@@ -3,15 +3,16 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const AssetURLPrefix = '[hash:8]/'
+const filenamePrefix = '[hash:8]/'
 
 module.exports = {
   entry: {
+    vendor: [ 'react', 'react-dom' ],
     home: path.resolve(__dirname, 'modules/client/home.js')
   },
 
   output: {
-    filename: `${AssetURLPrefix}[name].js`,
+    filename: `${filenamePrefix}[name].js`,
     path: path.resolve(__dirname, 'public/assets'),
     publicPath: '/assets/'
   },
@@ -25,7 +26,11 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new ExtractTextPlugin(`${AssetURLPrefix}styles.css`),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: `${filenamePrefix}vendor.js`
+    }),
+    new ExtractTextPlugin(`${filenamePrefix}styles.css`),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })
