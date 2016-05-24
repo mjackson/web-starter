@@ -9,7 +9,7 @@ This repo is a boilerplate that helps me build websites quickly using [node](htt
 - Session management (using cookies)
 - React for rendering all views
 
-It does not include:
+It does **not** include:
 
 - A mechanism for fetching data
 - A global state management framework
