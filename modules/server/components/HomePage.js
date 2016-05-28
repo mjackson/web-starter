@@ -21,7 +21,7 @@ class HomePage extends React.Component {
         <head>
           <meta charSet="utf-8"/>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-          <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,width=device-width"/>
+          <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
           <meta name="timestamp" content={(new Date).toISOString()}/>
           <title>{title}</title>
           <script dangerouslySetInnerHTML={{ __html: "window.Promise || document.write('\\x3Cscript src=\"/es6-promise.min.js\">\\x3C/script>\\x3Cscript>ES6Promise.polyfill()\\x3C/script>')" }}/>
