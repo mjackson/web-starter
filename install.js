@@ -30,7 +30,7 @@ rl.question(`What is the name of your project? `, (projectName) => {
 
     process.chdir(outputDir)
 
-    execSync(`rm -rf .git README.md install.js app.json`)
+    execSync(`rm -rf .git app.json install.js`)
 
     process.chdir(workingDir)
 
