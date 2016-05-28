@@ -1,12 +1,12 @@
 import React from 'react'
 import './Home.css'
 
-const Home = React.createClass({
-  render() {
+class Home extends React.Component {
+  render = () => {
     return (
       <div>go!</div>
     )
   }
-})
+}
 
 export default Home

@@ -1,23 +1,19 @@
 import React, { PropTypes } from 'react'
 
-const assetType = PropTypes.string
-
-const HomePage = React.createClass({
-  propTypes: {
+class HomePage extends React.Component {
+  static propTypes = {
     title: PropTypes.string,
-    styles: PropTypes.arrayOf(assetType),
-    scripts: PropTypes.arrayOf(assetType)
-  },
+    styles: PropTypes.arrayOf(PropTypes.string),
+    scripts: PropTypes.arrayOf(PropTypes.string)
+  }
 
-  getDefaultProps() {
-    return {
-      title: 'web-starter',
-      styles: [],
-      scripts: []
-    }
-  },
+  static defaultProps = {
+    title: 'web-starter',
+    styles: [],
+    scripts: []
+  }
 
-  render() {
+  render = () => {
     const { title, styles, scripts } = this.props
 
     return (
@@ -30,15 +26,15 @@ const HomePage = React.createClass({
           <title>{title}</title>
           <script dangerouslySetInnerHTML={{ __html: "window.Promise || document.write('\\x3Cscript src=\"/es6-promise.min.js\">\\x3C/script>\\x3Cscript>ES6Promise.polyfill()\\x3C/script>')" }}/>
           <script dangerouslySetInnerHTML={{ __html: "window.fetch || document.write('\\x3Cscript src=\"/fetch.min.js\">\\x3C/script>')" }}/>
-          {styles.map(style => <link key={style} rel="stylesheet" href={style}/>)}
+          {styles.map(s => <link rel="stylesheet" key={s} href={s}/>)}
         </head>
         <body>
           <div id="app"/>
-          {scripts.map(script => <script key={script} src={script}/>)}
+          {scripts.map(s => <script key={s} src={s}/>)}
         </body>
       </html>
     )
   }
-})
+}
 
 export default HomePage
