@@ -41,7 +41,13 @@ Open a browser to [http://localhost:5000](http://localhost:5000).
 
 ## Deploying
 
-When you're ready to deploy, create a new Heroku app and push:
+When you're ready to deploy, initialize your git repository:
+
+    $ git init
+    $ git add .
+    $ git commit -m "Initial commit"
+
+Then, create a new Heroku app and push:
 
     $ heroku create my-app-name
     $ git push heroku
