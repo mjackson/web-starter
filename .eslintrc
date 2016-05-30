@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "rules": {
     "array-bracket-spacing": [2, "always"],
+    "arrow-body-style": 1,
     "comma-dangle": 0,
     "consistent-return": 1,
     "curly": 0,
