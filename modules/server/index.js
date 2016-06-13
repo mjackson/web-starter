@@ -109,7 +109,12 @@ const DefaultServerConfig = {
   sessionSecret: SessionSecret
 }
 
-export const startServer = (config = DefaultServerConfig) => {
+export const startServer = (serverConfig) => {
+  const config = {
+    ...DefaultServerConfig,
+    ...serverConfig
+  }
+
   const server = process.env.NODE_ENV === 'production'
     ? createServer(config)
     : createDevServer(config)
