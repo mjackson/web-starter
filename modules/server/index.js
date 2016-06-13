@@ -1,5 +1,6 @@
 /*eslint-disable no-console*/
 import path from 'path'
+import throng from 'throng'
 import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -101,6 +102,7 @@ const statsFile = path.resolve(__dirname, '../../stats.json')
 const publicDir = path.resolve(__dirname, '../../public')
 
 const DefaultServerConfig = {
+  id: 1,
   port,
   webpackConfig,
   statsFile,
@@ -120,9 +122,13 @@ export const startServer = (serverConfig) => {
     : createDevServer(config)
 
   server.listen(config.port, () => {
-    console.log('Server listening on port %s, Ctrl+C to stop', config.port)
+    console.log('Server #%s listening on port %s, Ctrl+C to stop', config.id, config.port)
   })
 }
 
 if (require.main === module)
-  startServer()
+  throng({
+    start: (id) => startServer({ id }),
+    workers: process.env.WEB_CONCURRENCY || 1,
+    lifetime: Infinity
+  })
