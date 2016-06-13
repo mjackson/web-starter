@@ -1,10 +1,13 @@
 /*eslint-disable no-console*/
+import path from 'path'
 import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import devErrorHandler from 'errorhandler'
 import WebpackDevServer from 'webpack-dev-server'
+import webpackConfig from '../../webpack.config'
+import { SessionDomain, SessionSecret } from './SessionConfig'
 import { staticAssets, devAssets, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
 
@@ -92,3 +95,29 @@ export const createDevServer = (config) => {
 
   return server
 }
+
+const port = process.env.PORT || 5000
+const statsFile = path.resolve(__dirname, '../../stats.json')
+const publicDir = path.resolve(__dirname, '../../public')
+
+const DefaultServerConfig = {
+  port,
+  webpackConfig,
+  statsFile,
+  publicDir,
+  sessionDomain: SessionDomain,
+  sessionSecret: SessionSecret
+}
+
+export const startServer = (config = DefaultServerConfig) => {
+  const server = process.env.NODE_ENV === 'production'
+    ? createServer(config)
+    : createDevServer(config)
+
+  server.listen(config.port, () => {
+    console.log('Server listening on port %s, Ctrl+C to stop', config.port)
+  })
+}
+
+if (require.main === module)
+  startServer()
