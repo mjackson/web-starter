@@ -5,6 +5,7 @@ This repo is a boilerplate that helps me build websites quickly using [node](htt
 - An asset pipeline for development and production
 - Auto-refreshing of assets in development
 - Long-term asset caching in production that's easy to deploy to a CDN
+- A production-ready deploy strategy
 - A web server (express) for custom server logic
 - Session management (using cookies)
 - React for rendering all views
