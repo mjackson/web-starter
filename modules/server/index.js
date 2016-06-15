@@ -1,4 +1,5 @@
 /*eslint-disable no-console*/
+import http from 'http'
 import path from 'path'
 import throng from 'throng'
 import morgan from 'morgan'
@@ -54,7 +55,29 @@ export const createServer = (config) => {
   app.use(staticAssets(config.statsFile))
   app.use(createRouter(config))
 
-  return app
+  const server = http.createServer(app)
+
+  // Heroku dynos automatically timeout after 30s. Set our
+  // own timeout here to force sockets to close before that.
+  // https://devcenter.heroku.com/articles/request-timeout
+  if (config.timeout) {
+    server.setTimeout(config.timeout, (socket) => {
+      const message = `Server timeout of ${config.timeout}ms exceeded`
+      const httpMessage = [
+        `HTTP/1.1 503 Service Unavailable`,
+        `Date: ${(new Date).toGMTString()}`,
+        `Content-Type: text/plain`,
+        `Content-Length: ${message.length}`,
+        `Connection: close`,
+        ``,
+        message
+      ].join(`\r\n`)
+
+      socket.end(httpMessage)
+    })
+  }
+
+  return server
 }
 
 export const createDevServer = (config) => {
@@ -100,6 +123,7 @@ export const createDevServer = (config) => {
 const port = process.env.PORT || 5000
 const statsFile = path.resolve(__dirname, '../../stats.json')
 const publicDir = path.resolve(__dirname, '../../public')
+const timeout = 20000
 
 const DefaultServerConfig = {
   id: 1,
@@ -107,6 +131,7 @@ const DefaultServerConfig = {
   webpackConfig,
   statsFile,
   publicDir,
+  timeout,
   sessionDomain: SessionDomain,
   sessionSecret: SessionSecret
 }
