@@ -15,7 +15,7 @@ import { sendHomePage } from './MainController'
 
 const createSession = (config) => {
   const sessionConfig = {
-    name: `sess_${process.env.NODE_ENV}`,
+    name: `sess_${process.env.NODE_ENV}`
   }
 
   if (config.sessionDomain)
