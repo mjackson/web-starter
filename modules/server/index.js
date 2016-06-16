@@ -1,4 +1,4 @@
-/*eslint-disable no-console*/
+/*eslint-disable no-console, import/default*/
 import http from 'http'
 import path from 'path'
 import throng from 'throng'

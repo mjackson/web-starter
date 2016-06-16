@@ -18,11 +18,5 @@
     "prefer-arrow-callback": 2,
     "react/no-danger": 0,
     "semi": [ 2, "never" ]
-  },
-  "settings": {
-    "import/ignore": {
-      "node_modules",
-      "modules/server/index.js"
-    }
   }
 }
