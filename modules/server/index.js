@@ -1,6 +1,5 @@
-/*eslint-disable no-console, import/default*/
+/*eslint-disable no-console*/
 import http from 'http'
-import path from 'path'
 import throng from 'throng'
 import morgan from 'morgan'
 import express from 'express'
@@ -8,8 +7,7 @@ import cookieParser from 'cookie-parser'
 import cookieSession from 'cookie-session'
 import devErrorHandler from 'errorhandler'
 import WebpackDevServer from 'webpack-dev-server'
-import webpackConfig from '../../webpack.config'
-import { SessionDomain, SessionSecret } from './SessionConfig'
+import * as DefaultServerConfig from './ServerConfig'
 import { staticAssets, devAssets, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
 
@@ -118,22 +116,6 @@ export const createDevServer = (config) => {
   server.use(createRouter(config))
 
   return server
-}
-
-const port = process.env.PORT || 5000
-const statsFile = path.resolve(__dirname, '../../stats.json')
-const publicDir = path.resolve(__dirname, '../../public')
-const timeout = 20000
-
-const DefaultServerConfig = {
-  id: 1,
-  port,
-  webpackConfig,
-  statsFile,
-  publicDir,
-  timeout,
-  sessionDomain: SessionDomain,
-  sessionSecret: SessionSecret
 }
 
 export const startServer = (serverConfig) => {
