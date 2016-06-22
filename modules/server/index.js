@@ -48,6 +48,7 @@ export const createServer = (config) => {
   const app = express()
 
   app.disable('x-powered-by')
+
   app.use(errorHandler)
   app.use(express.static(config.publicDir))
   app.use(staticAssets(config.statsFile))
@@ -60,8 +61,9 @@ export const createServer = (config) => {
   // https://devcenter.heroku.com/articles/request-timeout
   if (config.timeout) {
     server.setTimeout(config.timeout, (socket) => {
-      const message = `Server timeout of ${config.timeout}ms exceeded`
-      const httpMessage = [
+      const message = `Timeout of ${config.timeout}ms exceeded`
+
+      socket.end([
         `HTTP/1.1 503 Service Unavailable`,
         `Date: ${(new Date).toGMTString()}`,
         `Content-Type: text/plain`,
@@ -69,9 +71,7 @@ export const createServer = (config) => {
         `Connection: close`,
         ``,
         message
-      ].join(`\r\n`)
-
-      socket.end(httpMessage)
+      ].join(`\r\n`))
     })
   }
 
