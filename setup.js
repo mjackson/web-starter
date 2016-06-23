@@ -29,9 +29,7 @@ rl.question(`What is the name of your project? `, (projectName) => {
     }
 
     process.chdir(outputDir)
-
-    execSync(`rm -rf .git app.json install.js`)
-
+    execSync(`rm -rf .git app.json setup.js`)
     process.chdir(workingDir)
 
     console.log(`Created a new project in ./${relativeDir}`)
