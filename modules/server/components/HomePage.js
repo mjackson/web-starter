@@ -13,7 +13,7 @@ class HomePage extends React.Component {
     scripts: []
   }
 
-  render = () => {
+  render() {
     const { title, styles, scripts } = this.props
 
     return (
