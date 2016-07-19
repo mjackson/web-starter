@@ -50,7 +50,7 @@ export const createServer = (config) => {
   app.disable('x-powered-by')
 
   app.use(errorHandler)
-  app.use(express.static(config.publicDir))
+  app.use(express.static(config.publicDir, { maxAge: config.maxAge }))
   app.use(staticAssets(config.statsFile))
   app.use(createRouter(config))
 

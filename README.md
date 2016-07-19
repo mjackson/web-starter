@@ -62,9 +62,15 @@ Use the `SESSION_DOMAIN` and `SESSION_SECRET` environment variables to configure
     $ heroku config:set SESSION_DOMAIN=.example.com
     $ heroku config:set SESSION_SECRET=`node -p 'require("crypto").randomBytes(64).toString("hex")'`
 
+## Long-term Caching
+
+By default assets are compiled when you deploy to Heroku and served out of the `public/assets` directory with a lifetime of one year (i.e. `Cache-Control: public, max-age=31536000` HTTP header). To alter the `max-age` value, set the `MAX_AGE` environment variable:
+
+    $ heroku config:set MAX_AGE=1d
+
 ## Serving Assets from a CDN
 
-By default assets are compiled when you deploy to Heroku and served out of the `public/assets` directory. If you want to put these assets on a CDN instead, first put the full URL to your CDN in the `output.publicPath` variable in `webpack.config.js` and manually run the build with:
+If you prefer to serve your assets directly from a CDN instead of from your application server, first put the full URL to your CDN in the `output.publicPath` variable in `webpack.config.js` and manually run the build with:
 
     $ npm run build
 
