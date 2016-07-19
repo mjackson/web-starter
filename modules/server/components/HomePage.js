@@ -9,12 +9,13 @@ class HomePage extends React.Component {
 
   static defaultProps = {
     title: 'web-starter',
+    webpackManifest: {},
     styles: [],
     scripts: []
   }
 
   render() {
-    const { title, styles, scripts } = this.props
+    const { title, webpackManifest, styles, scripts } = this.props
 
     return (
       <html>
@@ -26,6 +27,7 @@ class HomePage extends React.Component {
           <title>{title}</title>
           <script dangerouslySetInnerHTML={{ __html: "window.Promise || document.write('\\x3Cscript src=\"/es6-promise.min.js\">\\x3C/script>\\x3Cscript>ES6Promise.polyfill()\\x3C/script>')" }}/>
           <script dangerouslySetInnerHTML={{ __html: "window.fetch || document.write('\\x3Cscript src=\"/fetch.min.js\">\\x3C/script>')" }}/>
+          <script dangerouslySetInnerHTML={{ __html: "window.webpackManifest = " + JSON.stringify(webpackManifest) }}/>
           {styles.map(s => <link rel="stylesheet" key={s} href={s}/>)}
         </head>
         <body>

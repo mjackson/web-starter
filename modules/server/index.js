@@ -8,7 +8,7 @@ import cookieSession from 'cookie-session'
 import devErrorHandler from 'errorhandler'
 import WebpackDevServer from 'webpack-dev-server'
 import * as DefaultServerConfig from './ServerConfig'
-import { staticAssets, devAssets, createDevCompiler } from './AssetsUtils'
+import { assetsManifest, staticAssets, devAssets, createDevCompiler } from './AssetsUtils'
 import { sendHomePage } from './MainController'
 
 const createSession = (config) => {
@@ -51,6 +51,7 @@ export const createServer = (config) => {
 
   app.use(errorHandler)
   app.use(express.static(config.publicDir, { maxAge: config.maxAge }))
+  app.use(assetsManifest(config.manifestFile))
   app.use(staticAssets(config.statsFile))
   app.use(createRouter(config))
 

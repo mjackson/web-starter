@@ -11,6 +11,9 @@ export const sendHomePage = (req, res) => {
     scripts: req.bundle.getScriptAssets(chunks)
   }
 
+  if (req.manifest)
+    props.webpackManifest = req.manifest
+
   res.send(
     DOCTYPE + renderToStaticMarkup(<HomePage {...props}/>)
   )

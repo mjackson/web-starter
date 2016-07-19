@@ -1,9 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
+const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-const filenamePrefix = '[hash:8]/'
+const WebpackMD5Hash = require('webpack-md5-hash')
 
 module.exports = {
   entry: {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   output: {
-    filename: `${filenamePrefix}[name].js`,
+    filename: '[chunkhash:8]-[name].js',
     path: path.resolve(__dirname, 'public/assets'),
     publicPath: '/assets/'
   },
@@ -25,15 +25,20 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    new WebpackMD5Hash(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: `${filenamePrefix}vendor.js`
+      minChunks: Infinity
     }),
-    new ExtractTextPlugin(`${filenamePrefix}styles.css`),
+    new ChunkManifestPlugin({
+      filename: 'chunk-manifest.json',
+      manifestVariable: 'webpackManifest'
+    }),
+    new ExtractTextPlugin('[chunkhash:8]-styles.css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
   ],
 
   postcss: () => [ autoprefixer ]
