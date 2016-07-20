@@ -13,6 +13,9 @@
     "plugin:import/errors",
     "plugin:react/recommended"
   ],
+  "settings": {
+    "import/resolver": "webpack"
+  },
   "rules": {
     "array-bracket-spacing": [ 2, "always" ],
     "eqeqeq": [ 2, "smart" ],
