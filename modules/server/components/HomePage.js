@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react'
 class HomePage extends React.Component {
   static propTypes = {
     title: PropTypes.string,
+    webpackManifest: PropTypes.object,
     styles: PropTypes.arrayOf(PropTypes.string),
     scripts: PropTypes.arrayOf(PropTypes.string)
   }
