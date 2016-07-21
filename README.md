@@ -1,6 +1,6 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-This repo is a boilerplate that helps me build websites quickly using [node](https://nodejs.org/), [webpack](https://webpack.github.io/), [React](https://facebook.github.io/react/), and a few other pieces. Among other things, it includes:
+This repo is a boilerplate that helps me build websites quickly using [node](https://nodejs.org/), [webpack](https://webpack.github.io/), [React](https://facebook.github.io/react/), and deploy them on [Heroku](https://heroku.com). Among other things, it includes:
 
 - An asset pipeline for development and production
 - Auto-refreshing of assets in development
@@ -19,6 +19,8 @@ It does **not** include:
 This repo is mainly for me. This is how I build my websites. But I'm publishing it for the sake of others who may find it interesting.
 
 My main goal is to have something I can use to quickly spin up a new website on the stack I like to use. If I succeed, you can bet this repo will stay up to date and will occasionally even get new features. If you decide to use it and you think something's missing, please send a PR. If it's a lot of work, you might want to contact me first [on Twitter](https://twitter.com/mjackson) to see if it's something I'd like to include.
+
+This framework currently serves hundreds of thousands of HTTP requests per day on sites like [npmcdn](https://npmcdn.com) and [React30](https://react30.com) using Heroku [standard and hobby dynos](https://devcenter.heroku.com/articles/dyno-types).
 
 ## Getting Started
 
@@ -80,10 +82,8 @@ Then upload the `public/assets` directory to your CDN and deploy.
 
 web-starter wouldn't exist without the incredible work of everyone involved in these projects:
 
-- [node](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
 - [webpack](https://webpack.github.io/)
+- [Heroku](https://heroku.com/)
 - [express](http://expressjs.com/)
 - [Babel](http://babeljs.io/)
 - [React](https://facebook.github.io/react/)
-- [heroku](https://heroku.com/)
