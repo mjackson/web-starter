@@ -20,7 +20,12 @@ This repo is mainly for me. This is how I build my websites. But I'm publishing 
 
 My main goal is to have something I can use to quickly spin up a new website on the stack I like to use. If I succeed, you can bet this repo will stay up to date and will occasionally even get new features. If you decide to use it and you think something's missing, please send a PR. If it's a lot of work, you might want to contact me first [on Twitter](https://twitter.com/mjackson) to see if it's something I'd like to include.
 
-This framework currently serves hundreds of thousands of HTTP requests per day on sites like [npmcdn](https://npmcdn.com) and [React30](https://react30.com) using Heroku [standard and hobby dynos](https://devcenter.heroku.com/articles/dyno-types).
+## Examples
+
+This framework currently serves hundreds of thousands of HTTP requests per day on the following sites using Heroku [standard and hobby dynos](https://devcenter.heroku.com/articles/dyno-types):
+
+- [npmcdn](https://npmcdn.com) ([source](https://github.com/mjackson/npmcdn))
+- [React30](https://react30.com) ([source](https://github.com/ReactTraining/React30))
 
 ## Getting Started
 
