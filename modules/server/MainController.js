@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import HomePage from './components/HomePage'
+import MainPage from './components/MainPage'
 
 const DOCTYPE = '<!DOCTYPE html>'
 
@@ -15,6 +15,6 @@ export const sendHomePage = (req, res) => {
     props.webpackManifest = req.manifest
 
   res.send(
-    DOCTYPE + renderToStaticMarkup(<HomePage {...props}/>)
+    DOCTYPE + renderToStaticMarkup(<MainPage {...props}/>)
   )
 }
