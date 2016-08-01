@@ -42,7 +42,7 @@
     "eslint": "^3.0.1",
     "eslint-import-resolver-webpack": "^0.4.0",
     "eslint-plugin-import": "^1.8.1",
-    "eslint-plugin-react": "^5.1.1"
+    "eslint-plugin-react": "^6.0.0"
   },
   "engines": {
     "node": "6"
