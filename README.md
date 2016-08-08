@@ -1,6 +1,6 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-This repo is a boilerplate that helps me build websites quickly using [node](https://nodejs.org/), [webpack](https://webpack.github.io/), [React](https://facebook.github.io/react/), and deploy them on [Heroku](https://heroku.com). Among other things, it includes:
+This repo is a boilerplate that helps me build websites quickly using [React](https://facebook.github.io/react/), [webpack](https://webpack.github.io/), and [node](https://nodejs.org/), and deploy them on [Heroku](https://heroku.com). Among other things, it includes:
 
 - An asset pipeline for development and production
 - Auto-refreshing of assets in development
@@ -14,6 +14,7 @@ It does **not** include:
 
 - A mechanism for fetching data
 - A global state management framework
+- Server-side rendering of React components
 - A client-side router
 
 This repo is mainly for me. This is how I build my websites. But I'm publishing it for the sake of others who may find it interesting.
