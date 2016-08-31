@@ -25,7 +25,7 @@ My main goal is to have something I can use to quickly spin up a new website on 
 
 This framework currently serves hundreds of thousands of HTTP requests per day on the following sites using Heroku [standard and hobby dynos](https://devcenter.heroku.com/articles/dyno-types):
 
-- [npmcdn](https://npmcdn.com) ([source](https://github.com/mjackson/npmcdn))
+- [unpkg](https://unpkg.com) ([source](https://github.com/mjackson/unpkg))
 - [React30](https://react30.com) ([source](https://github.com/ReactTraining/React30))
 
 ## Getting Started
