@@ -20,7 +20,7 @@
     "chunk-manifest-webpack-plugin": "^0.1.0",
     "cookie-parser": "^1.4.2",
     "cookie-session": "^1.2.0",
-    "css-loader": "^0.24.0",
+    "css-loader": "^0.25.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
