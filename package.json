@@ -37,7 +37,7 @@
     "webpack-md5-hash": "0.0.5"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^7.1.0",
     "babel-register": "^6.8.0",
     "eslint": "^3.0.1",
     "eslint-import-resolver-webpack": "^0.5.1",
