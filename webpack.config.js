@@ -24,6 +24,12 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'modules/client/components')
+    }
+  },
+  
   plugins: [
     new WebpackMD5Hash(),
     new webpack.optimize.CommonsChunkPlugin({
