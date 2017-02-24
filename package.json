@@ -23,7 +23,7 @@
     "css-loader": "^0.25.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0",
     "invariant": "^2.2.1",
     "morgan": "^1.7.0",
     "postcss-loader": "^1.1.0",
