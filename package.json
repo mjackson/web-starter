@@ -32,7 +32,7 @@
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "throng": "^4.0.0",
-    "webpack": "^1.13.0",
+    "webpack": "^2.5.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-md5-hash": "0.0.5"
   },
